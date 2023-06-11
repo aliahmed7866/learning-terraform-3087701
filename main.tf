@@ -45,8 +45,9 @@ module "blog_sg" {
 
 
 module "autoscaling" {
-  source = "terraform-aws-mod7/autoscaling/aws"
-  version = "6.5.2"
+  source  = "terraform-aws-modules/autoscaling/aws"
+  version = "6.10.0"
+
 
   name = "blog"
   min_size = 1
