@@ -19,7 +19,7 @@ module "blog_vpc" {
   name = "dev"
   cidr = "10.0.0.0/16"
 
-  azs             = ["eu-west-2a", "us-west-2b", "us-west-2c"]
+  azs             = ["us-west-2a", "us-west-2b", "us-west-2c"]
   public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 
   tags = {
@@ -84,6 +84,14 @@ module "blog_alb" {
     }
   ]
 
+  https_listeners = [
+    {
+      port               = 443
+      protocol           = "HTTPS"
+      certificate_arn    = "arn:aws:iam::123456789012:server-certificate/test_cert-123456789012"
+      target_group_index = 0
+    }
+  ]
 
   http_tcp_listeners = [
     {
