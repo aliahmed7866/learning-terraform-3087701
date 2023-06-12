@@ -46,7 +46,7 @@ module "blog_sg" {
 
 module "autoscaling" {
   source  = "terraform-aws-modules/autoscaling/aws"
-  version = "${var.environment.network_prefix}"
+  version = "6.10.0"
 
 
   name = "$var.environment.name}-blog"
